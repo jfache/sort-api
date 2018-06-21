@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+    version: "0.0.1"
+    title: "Sort API"
+consumes:
+    - application/json
+produces:
+    - application/json
+paths:
+    /bubbleSort:
+        post:
+            operationId: "bubbleSort"
+            description: "Sort using the bubble sort algorithm"
+            parameters:
+                - name: request
+                  in: body
+                  required: true
+                  schema:
+                      $ref: "#/definitions/SortRequest"
+            responses:
+                "200":
+                    description: "Success"
+                    schema:
+                        $ref: "#/definitions/SortResponse"
+
+    /mergeSort:
+        post:
+            operationId: "mergeSort"
+            description: "Sort using the merge sort algorithm"
+            parameters:
+                - name: request
+                  in: body
+                  required: true
+                  schema:
+                      $ref: "#/definitions/SortRequest"
+            responses:
+                "200":
+                    description: "Success"
+                    schema:
+                        $ref: "#/definitions/SortResponse"
+
+definitions:
+    SortRequest:
+        type: object
+        properties:
+            unsortedNumbers:
+                type: array
+                items:
+                    type: number
+
+    SortResponse:
+        type: object
+        properties:
+            sortedNumbers:
+                type: array
+                items:
+                    type: number
