@@ -1,7 +1,9 @@
+const mergeSort = require('../helpers/mergeSort');
+
 module.exports = {
-    post: function bubbleSort(req, res, next) {
-        const sortedNumbers = req.body.unsortedNumbers.sort();
+    post: (req, res, next) => {
+        const unsortedNumbers = req.body.unsortedNumbers;
         res.status(200);
-        res.json(sortedNumbers);
+        res.json(mergeSort(unsortedNumbers));
     }
 };

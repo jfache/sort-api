@@ -1,7 +1,10 @@
+const bubbleSort = require('../helpers/bubbleSort');
+
 module.exports = {
-    post: function bubbleSort(req, res, next) {
-        const sortedNumbers = req.body.unsortedNumbers.sort();
+    post: (req, res) => {
+        let unsortedNumbers = req.body.unsortedNumbers;
+        bubbleSort(unsortedNumbers);
         res.status(200);
-        res.json(sortedNumbers);
+        res.json(unsortedNumbers);
     }
 };
